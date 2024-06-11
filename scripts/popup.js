@@ -13,11 +13,6 @@ taskInput.addEventListener("keydown", (event) => {
 
 renderTaskList(taskArray);
 
-const taskListElement = document.querySelector(".task-list");
-
-const checkBox = taskListElement.children[0];
-const labelElement = taskListElement.children[1];
-
 const addTaskButton = document.querySelector(".add-task-button");
 
 addTaskButton.addEventListener("click", () => {
@@ -28,18 +23,20 @@ addTaskButton.addEventListener("click", () => {
 
 //renders the tasklist onto the screen
 function renderTaskList() {
-	const taskListForm = document.querySelector(".task-list");
+	const taskListDiv = document.querySelector(".main-div");
 	let html = "";
 
 	for (let i = 0; i < taskArray.length; i++) {
 		html += `<div class="task-div">
-            <input class="checkbox" type="checkbox" name="a-task" id=${i} />
-			<label for=${i} class="task-name">${taskArray[i].title}</label>
+            <label class="container">${taskArray[i].title}
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+            </label>
                   </div>`;
 	}
 
 	taskInput.focus();
-	taskListForm.innerHTML = html;
+	taskListDiv.innerHTML = html;
 }
 
 function addTaskToList() {
