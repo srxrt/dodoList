@@ -6,11 +6,17 @@
 }
 
 body {
+	color: white;
 	display: block;
 	position: relative;
 	width: 25rem;
-	min-height: 20rem;
+	min-height: 30rem;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	background: #ff914d;
+}
+
+.done {
+	text-decoration: overline;
 }
 
 .header {
@@ -27,6 +33,7 @@ body {
 }
 
 .task-list {
+	min-height: 10rem;
 	margin-top: 2rem;
 	margin-left: 0.5rem;
 }
@@ -47,6 +54,6 @@ body {
 	margin-bottom: 0.5rem;
 }
 
-.input-section input {
+#task {
 	height: 1.5rem;
 }
