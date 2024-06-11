@@ -33,7 +33,7 @@ function renderTaskList() {
 
 	for (let i = 0; i < taskArray.length; i++) {
 		html += `<div class="task-div">
-            <input type="checkbox" name="a-task" id=${i} />
+            <input class="checkbox" type="checkbox" name="a-task" id=${i} />
 			<label for=${i} class="task-name">${taskArray[i].title}</label>
                   </div>`;
 	}

@@ -2,20 +2,37 @@
 	margin: 0;
 	padding: 0;
 }
+:root {
+	--textColor: #267ff3;
+	--bg: #000000;
+	--cardBg: #01000f;
+	--buttonText: #1760bf;
+	--buttonBg: rgb(7, 7, 7);
+	--headBg: #01000f;
+
+	box-sizing: border-box;
+}
+
+button {
+	border: none;
+	border-radius: 3px;
+	padding: 0.3rem;
+	font-weight: bold;
+	color: var(--buttonText);
+	background-color: var(--headBg);
+	cursor: pointer;
+}
 
 body {
-	color: white;
+	color: var(--textColor);
 	display: grid;
-	grid-template-rows: 1.5fr 6fr 1fr;
+	grid-template-rows: 1fr 8fr 1fr;
 	gap: 0px;
 	position: relative;
-	width: 25rem;
+	width: 20rem;
 	height: 30rem;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	background: #ff914d;
-
-	border: 2px solid blue;
-	margin-left: 10px;
+	background: var(--bg);
 }
 
 .done {
@@ -23,22 +40,37 @@ body {
 }
 
 .task-div {
+	border: none;
+	border-radius: 0.5rem;
+	background-color: var(--cardBg);
 	margin-top: 0.2rem;
-	border-top: 1px solid black;
-	padding-top: 0.5rem;
+	margin-right: 0.4rem;
+
+	padding: 0.5rem;
 }
 .header {
+	border: none;
+	background-color: var(--headBg);
+	font-size: 0.7rem;
+	font-weight: bold;
+
+	border-radius: 3px;
 	position: sticky;
-	display: grid;
-	grid-auto-flow: column;
-	grid-template-columns: 5fr 1fr;
-	column-gap: 0.3rem;
-	margin-left: 0.5rem;
-	margin-top: 1rem;
-	margin-right: 0.5rem;
-	padding-bottom: 1.5rem;
+	display: flex;
+	flex-direction: row;
+	overflow: hidden;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	padding-bottom: 1rem;
+	margin: 0.5rem 0.2rem 0rem;
 	height: 1rem;
-	border-bottom: 2px solid black;
+}
+
+.settings {
+	text-align: center;
+	padding-top: 1px;
+	padding-bottom: 1px;
 }
 
 .task-list {
@@ -47,6 +79,9 @@ body {
 
 .main-div {
 	overflow: auto;
+	scrollbar-width: thin;
+	scroll-behavior: smooth;
+	scrollbar-color: var(--textColor) var(--cardBg);
 }
 
 .input-section {
@@ -59,12 +94,27 @@ body {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	margin-top: 2rem;
-	margin-left: 0.5rem;
-	margin-right: 0.5rem;
-	margin-bottom: 0.5rem;
+
+	margin: 2rem 0.5rem 0.5rem 0.5rem;
 }
 
-#task {
+.task-input {
+	border: none;
+	border-radius: 0.4rem;
+	outline: none;
+	background-color: var(--cardBg);
+	padding: 0.4rem;
+	color: var(--textColor);
 	height: 1.5rem;
+}
+
+/* Hide the browser's default checkbox */
+.task-div input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+.checkbox {
 }
