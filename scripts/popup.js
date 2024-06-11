@@ -1,4 +1,13 @@
-let taskArray = [];
+let taskArray = [
+	{
+		title: "Task 1",
+		done: false,
+	},
+	{
+		title: "Task 1",
+		done: false,
+	},
+];
 
 const taskInput = document.querySelector(".task-input");
 taskInput.focus();
