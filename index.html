@@ -7,7 +7,28 @@
 		<link rel="stylesheet" href="./popup.css" />
 	</head>
 	<body>
-		<h1>hello world</h1>
+		<section class="header">
+			<h1>Task List</h1>
+			<button class="settings">Settings</button>
+		</section>
+		<hr />
+
+		<section class="task-list">
+			<div>
+				<div class="task-group-name">
+					<h3>Task Group</h3>
+				</div>
+				<div class="task-name">
+					<p>task name</p>
+				</div>
+			</div>
+		</section>
+		<hr />
+
+		<div class="input-section">
+			<input type="text" name="task" id="task" placeholder="Add a new task" />
+			<button>Add</button>
+		</div>
 
 		<script src="./scripts/popup.js" type="module"></script>
 	</body>
