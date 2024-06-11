@@ -7,22 +7,26 @@
 		<link rel="stylesheet" href="./popup.css" />
 	</head>
 	<body>
-		<section class="header">
-			<h1>Task List</h1>
+		<div class="header">
+			<h3>Task List</h3>
 			<button class="settings">Settings</button>
-		</section>
-		<hr />
+		</div>
 
-		<section>
+		<div class="main-div">
 			<form class="task-list">
 				<input type="checkbox" name="a-task" id="1" />
-				<label for="1" class="task-name">Korean</label>
+				<label for="1" class="task-name">Title</label>
 			</form>
-		</section>
-		<hr />
+		</div>
 
 		<div class="input-section">
-			<input type="text" name="task" id="task" placeholder="Add a new task" />
+			<input
+				class="task-input"
+				type="text"
+				name="task"
+				id="task"
+				placeholder="Add a new task"
+			/>
 			<button class="add-task-button">Add</button>
 		</div>
 
