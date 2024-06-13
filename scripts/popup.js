@@ -4,7 +4,7 @@ let taskArray = [
 		done: false,
 	},
 	{
-		title: "Task 1",
+		title: "Task 2",
 		done: false,
 	},
 ];
@@ -21,14 +21,14 @@ taskInput.addEventListener("keydown", (event) => {
 });
 
 renderTaskList(taskArray);
+addELtoDiv();
 
+// add button at the bottom
 const addTaskButton = document.querySelector(".add-task-button");
 
 addTaskButton.addEventListener("click", () => {
 	addTaskToList();
 });
-
-//input box
 
 //renders the tasklist onto the screen
 function renderTaskList() {
@@ -36,11 +36,12 @@ function renderTaskList() {
 	let html = "";
 
 	for (let i = 0; i < taskArray.length; i++) {
-		html += `<div class="task-div">
-            <label class="container">${taskArray[i].title}
-                  <input type="checkbox">
-                  <span class="checkmark"></span>
-            </label>
+		html += `<div class="task-div div-${i}" id="${i}">
+                    <label class="container">
+					      ${taskArray[i].title}
+                       <input type="checkbox" class="class-${i}">
+                       <span class="checkmark"></span>
+                    </label>
                   </div>`;
 	}
 
@@ -60,4 +61,33 @@ function addTaskToList() {
 
 	taskInput.value = "";
 	renderTaskList(taskArray);
+}
+
+// const index = 0;
+
+function test() {
+	const taskDiv = document.getElementById(`${0}`);
+	taskDiv.classList.add("done");
+}
+let inc = 0;
+
+function grayOut(i) {
+	const taskDiv = document.querySelector(`.div-${i}`);
+	console.log(taskArray[i].done);
+
+	if (!taskArray[i].done) {
+		taskDiv.classList.add("done");
+		taskArray[i].done = true;
+	} else {
+		taskDiv.classList.remove("done");
+		taskArray[i].done = false;
+	}
+}
+
+function addELtoDiv() {
+	for (let i = 0; i < taskArray.length; i++) {
+		document.querySelector(`.class-${i}`).addEventListener("click", (e) => {
+			grayOut(i);
+		});
+	}
 }
