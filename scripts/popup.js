@@ -14,14 +14,12 @@ taskInput.focus();
 
 //render list when Enter pressed
 taskInput.addEventListener("keydown", (event) => {
-	console.log(event.key);
 	if (event.key === "Enter") {
 		addTaskToList();
 	}
 });
 
 renderTaskList(taskArray);
-addELtoDiv();
 
 // add button at the bottom
 const addTaskButton = document.querySelector(".add-task-button");
@@ -36,17 +34,28 @@ function renderTaskList() {
 	let html = "";
 
 	for (let i = 0; i < taskArray.length; i++) {
-		html += `<div class="task-div div-${i}" id="${i}">
-                    <label class="container">
-					      ${taskArray[i].title}
-                       <input type="checkbox" class="class-${i}">
-                       <span class="checkmark"></span>
-                    </label>
-                  </div>`;
+		if (!taskArray[i].done) {
+			html += `<div class="task-div div-${i}" id="${i}">
+						<label class="container">
+							  ${taskArray[i].title}
+						   <input type="checkbox" class="class-${i}">
+						   <span class="checkmark"></span>
+						</label>
+					  </div>`;
+		} else {
+			html += `<div class="task-div done div-${i}" id="${i}">
+						<label class="container">
+							  ${taskArray[i].title}
+						   <input type="checkbox" checked="checked" class="class-${i}">
+						   <span class="checkmark"></span>
+						</label>
+					  </div>`;
+		}
 	}
 
 	taskInput.focus();
 	taskListDiv.innerHTML = html;
+	addELtoDiv();
 }
 
 function addTaskToList() {
@@ -73,8 +82,7 @@ let inc = 0;
 
 function grayOut(i) {
 	const taskDiv = document.querySelector(`.div-${i}`);
-	console.log(taskArray[i].done);
-
+	console.log(taskDiv);
 	if (!taskArray[i].done) {
 		taskDiv.classList.add("done");
 		taskArray[i].done = true;
@@ -82,6 +90,8 @@ function grayOut(i) {
 		taskDiv.classList.remove("done");
 		taskArray[i].done = false;
 	}
+
+	taskInput.focus();
 }
 
 function addELtoDiv() {
