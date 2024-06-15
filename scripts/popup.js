@@ -82,7 +82,7 @@ let inc = 0;
 
 function grayOut(i) {
 	const taskDiv = document.querySelector(`.div-${i}`);
-	console.log(taskDiv);
+
 	if (!taskArray[i].done) {
 		taskDiv.classList.add("done");
 		taskArray[i].done = true;

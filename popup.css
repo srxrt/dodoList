@@ -12,6 +12,7 @@
 	--buttonBg: #663ddf;
 	--headBg: #01000f;
 	--checkBoxBg: #ecfe72;
+	--CHECKBOXDONE: #a9ae89;
 
 	box-sizing: border-box;
 }
@@ -30,7 +31,7 @@ body {
 
 .done {
 	text-decoration: line-through;
-	color: rgba(38, 127, 243, 0.3);
+	color: rgb(96, 96, 100);
 }
 
 .task-div {
@@ -160,12 +161,12 @@ body {
 
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
-	background-color: #dada05fc;
+	background-color: #aec100;
 }
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-	background-color: var(--checkBoxBg);
+	background-color: var(--CHECKBOXDONE);
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
