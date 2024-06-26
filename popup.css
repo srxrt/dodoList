@@ -35,6 +35,8 @@ body {
 }
 
 .task-div {
+	display: flex;
+	justify-content: space-between;
 	border: none;
 	text-align: left;
 	border-radius: 0.5rem;
@@ -45,6 +47,14 @@ body {
 	margin-left: 0.2rem;
 
 	padding: 0.5rem;
+}
+
+.delete-button {
+	border: none;
+
+	background-color: var(--cardBg);
+	color: var(--textColor);
+	cursor: pointer;
 }
 .header {
 	border: none;

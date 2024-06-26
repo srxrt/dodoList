@@ -41,6 +41,9 @@ function renderTaskList() {
 						   <input type="checkbox" class="class-${i}">
 						   <span class="checkmark"></span>
 						</label>
+						<button class="delete-button remove-${i}">
+						   <img src="/images/delete.svg" alt="delete"/>
+						</button>
 					  </div>`;
 		} else {
 			html += `<div class="task-div done div-${i}" id="${i}">
@@ -99,5 +102,14 @@ function addELtoDiv() {
 		document.querySelector(`.class-${i}`).addEventListener("click", (e) => {
 			grayOut(i);
 		});
+
+		document.querySelector(`.remove-${i}`).addEventListener("click", (e) => {
+			removeItem(i);
+		});
 	}
+}
+
+function removeItem(i) {
+	taskArray.splice(i, 1);
+	renderTaskList(taskArray);
 }
