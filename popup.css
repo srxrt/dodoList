@@ -37,6 +37,7 @@ body {
 .task-div {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	border: none;
 	text-align: left;
 	border-radius: 0.5rem;
@@ -49,13 +50,32 @@ body {
 	padding: 0.5rem;
 }
 
-.delete-button {
+.remove-button {
 	border: none;
 
 	background-color: var(--cardBg);
-	color: var(--textColor);
+
 	cursor: pointer;
 }
+
+.remove-button :hover {
+	scale: 115%;
+	background-color: red;
+	border-radius: 30%;
+}
+
+.edit-button {
+	border: none;
+	background-color: var(--cardBg);
+
+	cursor: pointer;
+}
+.edit-button :hover {
+	background-color: #6c6e7c;
+	border-radius: 30%;
+	scale: 115%;
+}
+
 .header {
 	border: none;
 	background-color: var(--buttonBg);
@@ -172,6 +192,7 @@ body {
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
 	background-color: #aec100;
+	scale: 115%;
 }
 
 /* When the checkbox is checked, add a blue background */

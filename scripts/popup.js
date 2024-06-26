@@ -41,10 +41,18 @@ function renderTaskList() {
 						   <input type="checkbox" class="class-${i}">
 						   <span class="checkmark"></span>
 						</label>
-						<button class="delete-button remove-${i}">
-						   <img src="/images/delete.svg" alt="delete"/>
-						</button>
-					  </div>`;
+
+						<span>								  					 
+						  <button class="edit-button edit-${i}">
+						     <img src="/images/editnote.svg" alt="remove"/>
+						  </button>						  
+										 
+						  <button class="remove-button remove-${i}">
+						     <img src="/images/delete.svg" alt="remove"/>
+						  </button>						  
+						<span>
+
+					</div>`;
 		} else {
 			html += `<div class="task-div done div-${i}" id="${i}">
 						<label class="container">
@@ -52,6 +60,11 @@ function renderTaskList() {
 						   <input type="checkbox" checked="checked" class="class-${i}">
 						   <span class="checkmark"></span>
 						</label>
+						<span>						 
+						  <button class="remove-button remove-${i}">
+						     <img src="/images/delete.svg" alt="remove"/>
+						  </button>						  
+						<span>
 					  </div>`;
 		}
 	}
@@ -99,11 +112,11 @@ function grayOut(i) {
 
 function addELtoDiv() {
 	for (let i = 0; i < taskArray.length; i++) {
-		document.querySelector(`.class-${i}`).addEventListener("click", (e) => {
+		document.querySelector(`.class-${i}`).addEventListener("click", () => {
 			grayOut(i);
 		});
 
-		document.querySelector(`.remove-${i}`).addEventListener("click", (e) => {
+		document.querySelector(`.remove-${i}`).addEventListener("click", () => {
 			removeItem(i);
 		});
 	}
