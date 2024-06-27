@@ -1,34 +1,27 @@
-let taskArray = [
-	{
-		title: "Task 1",
-		done: false,
-	},
-	{
-		title: "Task 2",
-		done: false,
-	},
-];
+// gets the task list from the local storage
+let taskArray = JSON.parse(localStorage.getItem("taskList")) || [];
 
+// focuses keyboard on the input section
 const taskInput = document.querySelector(".task-input");
 taskInput.focus();
 
-//render list when Enter pressed
+// render list when Enter pressed
 taskInput.addEventListener("keydown", (event) => {
 	if (event.key === "Enter") {
 		addTaskToList();
 	}
 });
 
+// renders task list to the screen
 renderTaskList(taskArray);
 
 // add button at the bottom
 const addTaskButton = document.querySelector(".add-task-button");
-
 addTaskButton.addEventListener("click", () => {
 	addTaskToList();
 });
 
-//renders the tasklist onto the screen
+// renderer for the tasklist onto the screen
 function renderTaskList() {
 	const taskListDiv = document.querySelector(".main-div");
 	let html = "";
@@ -78,6 +71,7 @@ function renderTaskList() {
 	addELtoDiv();
 }
 
+// adds tasks to the tasklist
 function addTaskToList() {
 	const title = taskInput.value;
 
@@ -90,16 +84,10 @@ function addTaskToList() {
 
 	taskInput.value = "";
 	renderTaskList(taskArray);
+	saveToLocalStorage();
 }
 
-// const index = 0;
-
-function test() {
-	const taskDiv = document.getElementById(`${0}`);
-	taskDiv.classList.add("done");
-}
-let inc = 0;
-
+// grays out the ticked task
 function grayOut(i) {
 	const taskDiv = document.querySelector(`.div-${i}`);
 
@@ -114,6 +102,7 @@ function grayOut(i) {
 	taskInput.focus();
 }
 
+// adds event listener to every task and delete buttons
 function addELtoDiv() {
 	for (let i = 0; i < taskArray.length; i++) {
 		document.querySelector(`.class-${i}`).addEventListener("click", () => {
@@ -126,7 +115,14 @@ function addELtoDiv() {
 	}
 }
 
+// removes items when delete button is pressed
 function removeItem(i) {
 	taskArray.splice(i, 1);
 	renderTaskList(taskArray);
+	saveToLocalStorage();
+}
+
+// saves the task list to local storage
+function saveToLocalStorage() {
+	localStorage.setItem("taskList", JSON.stringify(taskArray));
 }
