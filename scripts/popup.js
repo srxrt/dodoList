@@ -60,7 +60,11 @@ function renderTaskList() {
 						   <input type="checkbox" checked="checked" class="class-${i}">
 						   <span class="checkmark"></span>
 						</label>
-						<span>						 
+						<span>								  					 
+						  <button class="edit-button edit-${i}">
+						     <img src="/images/editnote.svg" alt="remove"/>
+						  </button>						  
+										 
 						  <button class="remove-button remove-${i}">
 						     <img src="/images/delete.svg" alt="remove"/>
 						  </button>						  
