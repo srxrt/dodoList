@@ -98,7 +98,7 @@ function grayOut(i) {
 		taskDiv.classList.remove("done");
 		taskArray[i].done = false;
 	}
-
+	saveToLocalStorage();
 	taskInput.focus();
 }
 
