@@ -30,8 +30,10 @@ function renderTaskList() {
 		if (!taskArray[i].done) {
 			html += `<div class="task-div div-${i}" id="${i}">
 						<label class="container">
-							  ${taskArray[i].title}
-						   <input type="checkbox" class="class-${i}">
+							  <span class="label-${i}">
+							     ${taskArray[i].title}
+							  </span>
+						   <input type="checkbox" class="input-${i}">
 						   <span class="checkmark"></span>
 						</label>
 
@@ -49,8 +51,10 @@ function renderTaskList() {
 		} else {
 			html += `<div class="task-div done div-${i}" id="${i}">
 						<label class="container">
-							  ${taskArray[i].title}
-						   <input type="checkbox" checked="checked" class="class-${i}">
+						      <span class="label-${i}">
+							     ${taskArray[i].title}
+							  </span>
+						   <input type="checkbox" checked="checked" class="input-${i}">
 						   <span class="checkmark"></span>
 						</label>
 						<span>								  					 
@@ -87,7 +91,7 @@ function addTaskToList() {
 	saveToLocalStorage();
 }
 
-// grays out the ticked task
+// grays out the ticked task or reverts when unticked
 function grayOut(i) {
 	const taskDiv = document.querySelector(`.div-${i}`);
 
@@ -105,12 +109,15 @@ function grayOut(i) {
 // adds event listener to every task and delete buttons
 function addELtoDiv() {
 	for (let i = 0; i < taskArray.length; i++) {
-		document.querySelector(`.class-${i}`).addEventListener("click", () => {
+		document.querySelector(`.input-${i}`).addEventListener("click", () => {
 			grayOut(i);
 		});
 
 		document.querySelector(`.remove-${i}`).addEventListener("click", () => {
 			removeItem(i);
+		});
+		document.querySelector(`.edit-${i}`).addEventListener("click", () => {
+			editTask(i);
 		});
 	}
 }
@@ -125,4 +132,11 @@ function removeItem(i) {
 // saves the task list to local storage
 function saveToLocalStorage() {
 	localStorage.setItem("taskList", JSON.stringify(taskArray));
+}
+
+// edits the task and saves
+function editTask(i) {
+	const editLabel = document.querySelector(`.label-${i}`);
+
+	console.log(inputElement);
 }
