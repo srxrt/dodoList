@@ -155,6 +155,37 @@ body {
 	opacity: 0.4;
 }
 
+.task-edit {
+	border: none;
+	border-radius: 0.4rem;
+	outline: none;
+	box-shadow: 2px 2px 5px black;
+	background-color: var(--buttonBg);
+	text-decoration: none;
+
+	padding: 0.4rem;
+	color: var(--textColor);
+	height: 1.2rem;
+
+	width: 80%;
+}
+
+.save-task-button {
+	border: none;
+	border-radius: 0.4rem;
+	cursor: pointer;
+	background-color: var(--buttonBg);
+	box-shadow: 2px 2px 5px black;
+	text-decoration: none;
+
+	font-size: 1rem;
+	font-weight: bold;
+	color: var(--textColor);
+
+	padding: 0.4rem;
+	margin-left: 5px;
+}
+
 /* Customize the label (the container) */
 .container {
 	display: block;

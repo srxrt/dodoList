@@ -136,7 +136,16 @@ function saveToLocalStorage() {
 
 // edits the task and saves
 function editTask(i) {
-	const editLabel = document.querySelector(`.label-${i}`);
-
-	console.log(inputElement);
+	const editLabel = document.querySelector(`.div-${i}`);
+	editLabel.classList.remove("done");
+	editLabel.innerHTML = `<input
+				               class="task-edit"
+				               type="text"
+				               name="task"
+							   value="${taskArray[i].title}"
+				               
+				
+			                />
+							<button class="save-task-button" onclick="()=>{addTaskToList()}">add</button>
+							`;
 }
