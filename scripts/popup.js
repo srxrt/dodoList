@@ -146,6 +146,18 @@ function editTask(i) {
 				               
 				
 			                />
-							<button class="save-task-button" onclick="()=>{addTaskToList()}">add</button>
+							<button class="save-task-button" onclick=""
+							
+							
+							
+							
+							>
+							    update
+							</button>
 							`;
+}
+
+function updateTask() {
+	updateInput = document.querySelector(".task-edit");
+	updateInput.value;
 }
