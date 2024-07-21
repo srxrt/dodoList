@@ -126,6 +126,7 @@ function addELtoDiv() {
 function removeItem(i) {
 	taskArray.splice(i, 1);
 	renderTaskList(taskArray);
+	//this saves the task to the localstorage
 	saveToLocalStorage();
 }
 
