@@ -23,6 +23,11 @@ addTaskButton.addEventListener("click", () => {
 
 // renderer for the tasklist onto the screen
 function renderTaskList() {
+	taskArray.forEach((element, index) => {
+		if (element.title === "") {
+			taskArray.splice(index, 1);
+		}
+	});
 	const taskListDiv = document.querySelector(".main-div");
 	let html = "";
 
