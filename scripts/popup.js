@@ -28,7 +28,7 @@ function renderTaskList() {
 
 	for (let i = 0; i < taskArray.length; i++) {
 		if (!taskArray[i].done) {
-			html += `<div class="task-div div-${i}" id="${i}">
+			html += `<div class="task-div div-${i}" id="${i}">			          
 						<label class="container">
 							  <span class="label-${i}">
 							     ${taskArray[i].title}
@@ -45,9 +45,8 @@ function renderTaskList() {
 						  <button class="remove-button remove-${i}">
 						     <img src="/images/delete.svg" alt="remove"/>
 						  </button>						  
-						<span>
-
-					</div>`;
+						<span>					
+					  </div>`;
 		} else {
 			html += `<div class="task-div done div-${i}" id="${i}">
 						<label class="container">
@@ -138,27 +137,35 @@ function saveToLocalStorage() {
 // edits the task and saves
 function editTask(i) {
 	const editLabel = document.querySelector(`.div-${i}`);
-	editLabel.classList.remove("done");
-	editLabel.innerHTML = `<input
-				               class="task-edit"
-				               type="text"
-				               name="task"
-							   value="${taskArray[i].title}"
-				               
-				
-			                />
-							<button class="save-task-button" onclick=""
-							
-							
-							
-							
-							>
-							    update
-							</button>
-							`;
+	if (editLabel) {
+		editLabel.classList.remove("done");
+
+		const editText = document.createElement("input");
+
+		editText.classList.add("task-edit");
+		editText.value = taskArray[i].title;
+		editText.addEventListener("keydown", (event) => {
+			if (event.key === "Enter") {
+				updateTask(editText.value, i);
+			}
+		});
+
+		const updateButton = document.createElement("button");
+		updateButton.classList.add("save-task-button");
+		updateButton.textContent = "update";
+		updateButton.addEventListener("click", () => {
+			updateTask(editText.value, i);
+		});
+
+		editLabel.children[0].replaceWith(editText);
+		editLabel.children[1].replaceWith(updateButton);
+		editText.focus();
+	}
 }
 
-function updateTask() {
-	updateInput = document.querySelector(".task-edit");
-	updateInput.value;
+function updateTask(editedText, index) {
+	taskArray[index].title = editedText;
+	saveToLocalStorage();
+	renderTaskList(taskArray);
+	taskInput.focus();
 }
