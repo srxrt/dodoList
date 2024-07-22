@@ -33,7 +33,7 @@ function renderTaskList() {
 
 	for (let i = 0; i < taskArray.length; i++) {
 		if (!taskArray[i].done) {
-			html += `<div class="task-div div-${i}" id="${i}">			          
+			html += `<div class="task-div div-${i}" id="${i}">
 						<label class="container">
 							  <span class="label-${i}">
 							     ${taskArray[i].title}
@@ -42,15 +42,15 @@ function renderTaskList() {
 						   <span class="checkmark"></span>
 						</label>
 
-						<span>								  					 
+						<span>
 						  <button class="edit-button edit-${i}">
 						     <img src="/images/editnote.svg" alt="remove"/>
-						  </button>						  
-										 
+						  </button>
+
 						  <button class="remove-button remove-${i}">
 						     <img src="/images/delete.svg" alt="remove"/>
-						  </button>						  
-						<span>					
+						  </button>
+						<span>
 					  </div>`;
 		} else {
 			html += `<div class="task-div done div-${i}" id="${i}">
@@ -61,14 +61,14 @@ function renderTaskList() {
 						   <input type="checkbox" checked="checked" class="input-${i}">
 						   <span class="checkmark"></span>
 						</label>
-						<span>								  					 
+						<span>
 						  <button class="edit-button edit-${i}">
 						     <img src="/images/editnote.svg" alt="remove"/>
-						  </button>						  
-										 
+						  </button>
+
 						  <button class="remove-button remove-${i}">
 						     <img src="/images/delete.svg" alt="remove"/>
-						  </button>						  
+						  </button>
 						<span>
 					  </div>`;
 		}
